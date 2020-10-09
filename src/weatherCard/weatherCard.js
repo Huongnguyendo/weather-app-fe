@@ -9,7 +9,7 @@ const WeatherCard = ({ weatherData }) => {
   };
 
   const getTempC = (tempK) => {
-    return Math.round(tempK);
+    return Math.round(tempK - 273.15);
   };
 
   if (!weatherData) return <div>Loading...</div>;
