@@ -30,12 +30,10 @@ function App() {
   const getWeatherData = async (e) => {
     if (e) e.preventDefault();
     try {
-      console.log("keyword", keyword);
       let url = `${REACT_APP_BACKEND}?q=${keyword}`;
       let response = await fetch(url);
       if (response.status == 200) {
         let data = await response.json();
-        console.log("do we get data", response);
         setWeatherData(data.data);
       } else throw new Error({ message: "i am new error" });
     } catch (err) {
@@ -52,11 +50,8 @@ function App() {
   const getWeather = async (longtitude, latitude) => {
     try {
       let url = `${REACT_APP_BACKEND}?lon=${longtitude}&lat=${latitude}`;
-      console.log("url: ", url);
       let response = await fetch(url);
-      console.log("response", response);
       let data = await response.json();
-      console.log("dataaa", data);
       setWeatherData(data.data);
     } catch (e) {
       alert(e);
